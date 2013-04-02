@@ -1,0 +1,28 @@
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @post.text %>
+</p>
+<span class="label label-info">Created on: <%=@post.created_at.strftime("%d %b. %Y")%></span>
+
+
+
+	<h2>Comments</h2>
+	<%= render @post.comments %>
+	<hr>
+
+
+
+<h2>Add a comment:</h2>
+<%= render "comments/form" %>
+
+<div class="fb-like" data-href="http://mxblog.mx/" data-send="false" data-width="450" data-show-faces="true" data-font="lucida grande"></div>
+
+<ln>
+
+<%= link_to 'Back', :action => :index %>
+| <%= link_to 'Edit', :action => :edit, :id => @post.id %>

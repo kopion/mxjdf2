@@ -1,0 +1,41 @@
+<h2>Listing posts</h2>
+
+<table class="table table-hover">
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+
+  <% @posts.each do |post| %> 
+    
+      <tr>
+        <ln>
+        <td><%= post.title %></td>
+        <td><%= truncate(post.text, :separator => '[---MORE---]') %></td>
+        
+        <td>
+          <p>
+          <button class="btn btn-small" type="button"><%= link_to 'Show', :action => :show, :id => post.id %></button>
+          </p>
+        </td>
+        
+        <td>
+          <p>
+          <button class="btn btn-small" type="button"><%= link_to 'Edit', :action => :edit, :id => post.id %></button>
+          </p>
+        </td>
+        
+        <td>
+          <p>
+          <button class="btn btn-small btn-danger" type="button"><%= link_to 'Destroy', { :action => :destroy, :id => post.id }, :method => :delete, :data => { :confirm => 'Are you sure?' } %></button>
+          </p>
+        </td>
+
+
+      </tr>
+
+  <% end %>
+  
+  <button class="btn btn-primary" type="button"><%= link_to 'New post', :action => :new %></button>
+
+</table>
